@@ -13,10 +13,10 @@ const Footer = () => {
             </div>
 
             <div className={styles.links}>
-               <Link href="/about">About</Link>
-               <Link href="/services">Services</Link>
-               <Link href="/portfolio">Portfolio</Link>
-               <Link href="/contact">Contact</Link>
+               <Link href="#about">About</Link>
+               <Link href="#services">Services</Link>
+               <Link href="#portfolio">Portfolio</Link>
+               <Link href="#contact">Contact</Link>
             </div>
 
             <div className={styles.cta}>

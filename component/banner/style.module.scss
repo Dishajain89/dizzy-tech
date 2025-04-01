@@ -16,6 +16,7 @@
       justify-content: space-between;
       flex-wrap: wrap;
       text-align: left;
+      gap: 1rem;
     }
   
     .text {
@@ -59,6 +60,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 1rem;
   
       img {
         max-width: 400px;
