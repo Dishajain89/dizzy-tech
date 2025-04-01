@@ -28,7 +28,7 @@ const portfolioProjects = [
 
 const Portfolio = () => {
   return (
-    <section className={styles.portfolio}>
+    <section className={styles.portfolio} id="portfolio">
       <motion.div 
         className={styles.container}
         initial={{ opacity: 0, y: 50 }}

@@ -40,15 +40,18 @@
       padding: 2rem;
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
   
       h3 {
-        font-size: 1.5rem;
+        font-size: 2.5rem;
         color: $secondray-hover;
         margin-bottom: 1rem;
       }
   
       p {
-        font-size: 1rem;
+        font-size: 1.7rem;
         color: #d1d1d1;
         margin-bottom: 1rem;
         line-height: 1.6;
@@ -106,6 +109,14 @@
         }
       }
     }
+    .successMessage {
+        color: #4caf50; // Green color for success
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 10px;
+      }
+      
   
     @media (max-width: 768px) {
       .contactWrapper {

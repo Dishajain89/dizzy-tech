@@ -1,23 +1,31 @@
 "use client";
 import { useState } from "react";
+import { useForm, ValidationError } from "@formspree/react";
 import { motion } from "framer-motion";
 import styles from "./style.module.scss";
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [isSubmitted, setIsSubmitted] = useState(false); // Track form submission
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  // Formspree Hook
+  const [state, handleSubmit] = useForm("xdkelqjp");
 
-  const handleSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    alert("Message sent! We will get back to you soon.");
-    setFormData({ name: "", email: "", message: "" });
+    await handleSubmit(e); // Submit to Formspree
+
+    if (state.succeeded) {
+      setIsSubmitted(true); // Show success message
+      setFormData({ name: "", email: "", message: "" }); // Clear input fields
+
+      // Hide success message after 5 seconds
+      setTimeout(() => setIsSubmitted(false), 25000);
+    }
   };
 
   return (
-    <section className={styles.contact}>
+    <section className={styles.contact} id="contact">
       <motion.div 
         className={styles.container}
         initial={{ opacity: 0, y: 50 }}
@@ -57,39 +65,54 @@ const Contact = () => {
             </p>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* Contact Form with Formspree */}
           <motion.form 
             className={styles.contactForm}
-            onSubmit={handleSubmit}
+            onSubmit={handleFormSubmit}
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
           >
             <input 
+              id="name"
               type="text" 
               name="name" 
-              placeholder="Your Name" 
+              placeholder="Enter your name"
               required 
               value={formData.name} 
-              onChange={handleChange} 
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })} 
             />
+
             <input 
+              id="email"
               type="email" 
-              name="email" 
-              placeholder="Your Email" 
+              name="email"
+              placeholder="Enter your email"
               required 
               value={formData.email} 
-              onChange={handleChange} 
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })} 
             />
+            <ValidationError prefix="Email" field="email" errors={state.errors} />
+
             <textarea 
+              id="message"
               name="message" 
               rows="4" 
-              placeholder="Your Message" 
+              placeholder="Write your message here..."
               required 
               value={formData.message} 
-              onChange={handleChange} 
+              onChange={(e) => setFormData({ ...formData, message: e.target.value })} 
             />
-            <button type="submit">Send Message</button>
+            <ValidationError prefix="Message" field="message" errors={state.errors} />
+
+            {/* Show success message in place of the button */}
+            {isSubmitted ? (
+              <p className={styles.successMessage}>Thanks for reaching out! We will get back to you soon.</p>
+            ) : (
+              <button type="submit" disabled={state.submitting}>
+                {state.submitting ? "Sending..." : "Send Message"}
+              </button>
+            )}
           </motion.form>
         </div>
       </motion.div>

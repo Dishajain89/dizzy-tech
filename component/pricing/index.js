@@ -65,7 +65,7 @@ const Pricing = () => {
               <ul>
                 {plan.features.map((feature, i) => <li key={i}>{feature}</li>)}
               </ul>
-              <a href="/contact" className={styles.cta}>Get Started</a>
+              <a href="#contact" className={styles.cta}>Get Started</a>
             </motion.div>
           ))}
         </div>

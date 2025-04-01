@@ -1,10 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
 import styles from "./style.module.scss";
+import Image from "next/image";
 
 const AboutUs = () => {
   return (
-    <section className={styles.about}>
+    <section className={styles.about} id="about">
       <motion.div 
         className={styles.container}
         initial={{ opacity: 0, y: 50 }}
@@ -63,7 +64,7 @@ const AboutUs = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 1, duration: 0.8 }}
           >
-            <a href="/contact" className={styles.cta}>Work with Us</a>
+            <a href="#contact" className={styles.cta}>Work with Us</a>
           </motion.div>
         </div>
 
@@ -73,7 +74,7 @@ const AboutUs = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.7, duration: 0.8 }}
         >
-          <img src="/about-illustration.svg" alt="About DizzyTech" />
+          <Image width={600} height={400} src="/images/aboutUs.jpg" alt="About DizzyTech" />
         </motion.div>
       </motion.div>
     </section>

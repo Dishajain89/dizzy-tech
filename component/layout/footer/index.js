@@ -21,7 +21,7 @@ const Footer = () => {
 
             <div className={styles.cta}>
                <p>Let’s build something amazing together!</p>
-               <Link href="/contact">
+               <Link href="#contact">
                   <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
                      Get in Touch
                   </motion.button>

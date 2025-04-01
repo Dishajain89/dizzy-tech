@@ -22,11 +22,11 @@ const Navbar = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <li><Link href="/">Home</Link></li>
-        <li><Link href="/about">About</Link></li>
-        <li><Link href="/services">Services</Link></li>
-        <li><Link href="/portfolio">Portfolio</Link></li>
-        <li><Link href="/contact">Contact</Link></li>
+        <li><Link href="#banner">Home</Link></li>
+        <li><Link href="#about">About</Link></li>
+        <li><Link href="#services">Services</Link></li>
+        <li><Link href="#portfolio">Portfolio</Link></li>
+        <li><Link href="#contact">Contact</Link></li>
       </motion.ul>
     </nav>
   );
