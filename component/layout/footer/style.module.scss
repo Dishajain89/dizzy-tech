@@ -1,0 +1,82 @@
+@import "../../../public/styles/partials/variables";
+.footer {
+   background: $primary-color;
+   color: $text-color;
+   // padding: 2rem 1rem;
+   text-align: center;
+
+   .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      //   flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 2rem 1rem;
+   }
+
+   .brand {
+      h2 {
+         font-size: 1.8rem;
+         font-weight: bold;
+         padding: 1rem 0;
+      }
+      p {
+         font-size: 1rem;
+         opacity: 0.8;
+      }
+   }
+
+   .links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      a {
+         color: $text-color;
+         text-decoration: none;
+         font-size: 1rem;
+         transition: color 0.3s ease;
+         &:hover {
+            color: $hover-color;
+         }
+      }
+   }
+
+   .cta {
+      p {
+         font-size: 1.2rem;
+         margin-bottom: 0.5rem;
+      }
+      button {
+         background: $hover-color;
+         color: $primary-color;
+         border: none;
+         padding: 0.8rem 1.5rem;
+         font-size: 1rem;
+         font-weight: bold;
+         cursor: pointer;
+         border-radius: 5px;
+         transition: all 0.3s ease;
+         &:hover {
+            background: $hover-color;
+         }
+      }
+   }
+
+   .bottom {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      margin-top: 1rem;
+      padding: 1rem;
+   }
+
+   @media (max-width: 768px) {
+      .container {
+         flex-direction: column;
+      }
+      .links {
+         flex-direction: column;
+      }
+   }
+}

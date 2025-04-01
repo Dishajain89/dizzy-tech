@@ -1,0 +1,69 @@
+@import "../../../public/styles/partials/variables";
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: $primary-color;
+  color: $text-color;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+  .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+
+  .menuIcon {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  .navLinks {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    transition: all 0.3s ease-in-out;
+
+    li {
+      a {
+        text-decoration: none;
+        color: $text-color;
+        font-size: 1.2rem;
+        font-weight: 500;
+        transition: color 0.3s ease-in-out;
+
+        &:hover {
+          color: $hover-color;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .menuIcon {
+      display: block;
+    }
+
+    .navLinks {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background: $primary-color;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem 0;
+      display: none;
+    }
+
+    .open {
+      display: flex;
+    }
+  }
+}

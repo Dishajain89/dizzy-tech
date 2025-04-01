@@ -1,0 +1,87 @@
+@import "../../public/styles/partials/variables";
+.services {
+    background: $secondray-color; 
+    color: #f0f0f0;
+    text-align: center;
+    padding: 4rem 2rem;
+  
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+  
+    h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: $hover-color;
+      margin-bottom: 1rem;
+      span {
+        // color: #ffcc00;
+      }
+    }
+  
+    p {
+      font-size: 1.2rem;
+      color: #d1d1d1;
+      margin-bottom: 2rem;
+    }
+  
+    .serviceCards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+  
+    .card {
+      background: #112b52; // Slightly lighter blue for contrast
+      padding: 2rem;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      }
+  
+      .icon {
+        font-size: 3rem;
+        color: $hover-color;
+        margin-bottom: 1rem;
+      }
+  
+      h3 {
+        font-size: 1.5rem;
+        color: #ffffff;
+        margin-bottom: 0.5rem;
+      }
+  
+      p {
+        font-size: 1rem;
+        color: #d1d1d1;
+      }
+    }
+  
+    @media (max-width: 768px) {
+      h2 {
+        font-size: 2rem;
+      }
+      
+      p {
+        font-size: 1rem;
+      }
+  
+      .serviceCards {
+        flex-direction: column;
+        align-items: center;
+      }
+  
+      .card {
+        width: 90%;
+      }
+    }
+  }
+  

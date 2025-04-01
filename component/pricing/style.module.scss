@@ -1,0 +1,134 @@
+@import "../../public/styles/partials/variables";
+.pricing {
+    background: $secondray-color;
+    color: #f0f0f0;
+    text-align: center;
+    padding: 5rem 2rem;
+  
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+  
+    h2 {
+      font-size: 2.8rem;
+      font-weight: bold;
+      color: $hover-color;
+      margin-bottom: 1rem;
+      span {
+        // color: #ffcc00;
+      }
+    }
+  
+    p {
+      font-size: 1.2rem;
+      color: #d1d1d1;
+      margin-bottom: 2.5rem;
+    }
+  
+    .toggleWrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+      gap: 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+  
+      .toggle {
+        width: 60px;
+        height: 30px;
+        background: $hover-color;
+        border-radius: 20px;
+        position: relative;
+        cursor: pointer;
+        transition: background 0.3s ease;
+  
+        .toggleCircle {
+          position: absolute;
+          top: 5px;
+          left: 5px;
+          width: 20px;
+          height: 20px;
+          background: #112b52;
+          border-radius: 50%;
+          transition: left 0.3s ease;
+        }
+  
+        .activeCircle {
+          left: 35px;
+        }
+      }
+  
+      .active {
+        color: $hover-color;}
+    }
+  
+    .pricingCards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      justify-content: center;
+    }
+  
+    .pricingCard {
+      background: #112b52;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      }
+  
+      h3 {
+        font-size: 1.5rem;
+        color: $hover-color;
+        margin-bottom: 1rem;
+      }
+  
+      .price {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #ffffff;
+        margin-bottom: 1rem;
+      }
+  
+      ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 1.5rem;
+  
+        li {
+          font-size: 1rem;
+          color: #d1d1d1;
+          margin-bottom: 0.5rem;
+        }
+      }
+  
+      .cta {
+        display: inline-block;
+        background: $hover-color;
+        color: #112b52;
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+        font-weight: bold;
+        border-radius: 6px;
+        text-decoration: none;
+        transition: background 0.3s ease;
+  
+        &:hover {
+          background: $secondray-hover;
+        }
+      }
+    }
+  
+    @media (max-width: 768px) {
+      .pricingCards {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+  
