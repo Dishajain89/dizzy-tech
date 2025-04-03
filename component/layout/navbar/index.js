@@ -1,38 +1,59 @@
-"use client"
-import { useState } from "react";
-import Link from "next/link";
-import styles from "./style.module.scss";
+"use client";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { FiMenu, FiX } from "react-icons/fi";
-import Image from "next/image";
+import styles from "./style.module.scss";
+import Link from "next/link";
+import Lottie from "lottie-react";
+import ButtonCustom from "../ui/button";
 
-const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+const Banner = () => {
+   const [mouseX, setMouseX] = useState(0);
+   const [mouseY, setMouseY] = useState(0);
+   const [animationData, setAnimationData] = useState(null);
 
-  return (
-    <nav className={styles.navbar}>
-      <div className={styles.logo}>
-        <Image src="/images/dizzyTechLogo-white.png" width="70" height="50" alt="logo" />
-      </div>
-      
-      <div className={styles.menuIcon} onClick={() => setMenuOpen(!menuOpen)}>
-        {menuOpen ? <FiX /> : <FiMenu />}
-      </div>
-      
-      <motion.ul 
-        className={`${styles.navLinks} ${menuOpen ? styles.open : ""}`}
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <li><Link href="#banner">Home</Link></li>
-        <li><Link href="#about">About</Link></li>
-        <li><Link href="#services">Services</Link></li>
-        <li><Link href="#portfolio">Portfolio</Link></li>
-        <li><Link href="#contact">Contact</Link></li>
-      </motion.ul>
-    </nav>
-  );
+   useEffect(() => {
+      // Ensure this runs only on the client
+      if (typeof window !== "undefined") {
+         import("../../public/Animation1.json")
+            .then((data) => setAnimationData(data))
+            .catch((err) => console.error("Error loading animation:", err));
+      }
+   }, []);
+
+   const handleMouseMove = (e) => {
+      setMouseX((e.clientX / window.innerWidth) * 20 - 10);
+      setMouseY((e.clientY / window.innerHeight) * 20 - 10);
+   };
+
+   return (
+      <section className={styles.banner} id="home" onMouseMove={handleMouseMove}>
+         <motion.div
+            className={styles.animationBackground}
+            animate={{ x: mouseX, y: mouseY }}
+            transition={{ type: "spring", stiffness: 50, damping: 20 }}
+         >
+            {animationData ? (
+               <Lottie animationData={animationData} loop autoplay className={styles.lottieAnimation} />
+            ) : (
+               <p>Loading animation...</p>
+            )}
+         </motion.div>
+
+         <motion.div className={styles.container} initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+            <div className={styles.text}>
+               <motion.h1 initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3, duration: 0.8 }}>
+                  Elevate Your Business with <span>DizzyTech</span>
+               </motion.h1>
+               <motion.p initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5, duration: 0.8 }}>
+                  We build <b>high-converting websites</b> & digital strategies that help your business grow. Let’s create something amazing together!
+               </motion.p>
+               <Link href="#contact">
+                  <ButtonCustom label="Get Started" />
+               </Link>
+            </div>
+         </motion.div>
+      </section>
+   );
 };
 
-export default Navbar;
+export default Banner;
