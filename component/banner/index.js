@@ -1,19 +1,27 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import styles from "./style.module.scss";
 import Link from "next/link";
 import Lottie from "lottie-react";
-import animationData from "../../public/assets/animation/Animation1.json";
 import ButtonCustom from "../ui/button";
 
 const Banner = () => {
    const [mouseX, setMouseX] = useState(0);
    const [mouseY, setMouseY] = useState(0);
+   const [animationData, setAnimationData] = useState(null);
+
+   // Fetch animation JSON dynamically
+   useEffect(() => {
+      fetch("/Animation1.json") // Fetching from public folder
+         .then((res) => res.json())
+         .then((data) => setAnimationData(data))
+         .catch((err) => console.error("Error loading animation:", err));
+   }, []);
 
    // Function to track mouse movement
    const handleMouseMove = (e) => {
-      setMouseX((e.clientX / window.innerWidth) * 20 - 10); // Shift range -10 to 10
+      setMouseX((e.clientX / window.innerWidth) * 20 - 10);
       setMouseY((e.clientY / window.innerHeight) * 20 - 10);
    };
 
@@ -24,7 +32,11 @@ const Banner = () => {
             animate={{ x: mouseX, y: mouseY }}
             transition={{ type: "spring", stiffness: 50, damping: 20 }}
          >
-            <Lottie animationData={animationData} loop autoplay className={styles.lottieAnimation} />
+            {animationData ? (
+               <Lottie animationData={animationData} loop autoplay className={styles.lottieAnimation} />
+            ) : (
+               <p>Loading animation...</p>
+            )}
          </motion.div>
 
          <motion.div className={styles.container} initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
