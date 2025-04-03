@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import styles from "./style.module.scss";
 import Link from "next/link";
@@ -11,15 +11,15 @@ const Banner = () => {
    const [mouseY, setMouseY] = useState(0);
    const [animationData, setAnimationData] = useState(null);
 
-   // Fetch animation JSON dynamically
    useEffect(() => {
-      fetch("/Animation1.json") // Fetching from public folder
-         .then((res) => res.json())
-         .then((data) => setAnimationData(data))
-         .catch((err) => console.error("Error loading animation:", err));
+      // Ensure this runs only on the client
+      if (typeof window !== "undefined") {
+         import("../../public/Animation1.json")
+            .then((data) => setAnimationData(data))
+            .catch((err) => console.error("Error loading animation:", err));
+      }
    }, []);
 
-   // Function to track mouse movement
    const handleMouseMove = (e) => {
       setMouseX((e.clientX / window.innerWidth) * 20 - 10);
       setMouseY((e.clientY / window.innerHeight) * 20 - 10);
