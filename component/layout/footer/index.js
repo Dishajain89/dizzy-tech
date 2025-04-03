@@ -2,13 +2,14 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import styles from "./style.module.scss";
+import Image from "next/image";
 
 const Footer = () => {
    return (
       <footer className={styles.footer}>
          <motion.div className={styles.container} initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <div className={styles.brand}>
-               <h2>DizzyTech</h2>
+                <Image src="/images/dizzyTechLogo-white.png" width="100" height="100" alt="logo" />
                <p>Your Digital Growth Partner.</p>
             </div>
 

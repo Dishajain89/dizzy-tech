@@ -26,7 +26,7 @@ const Services = () => {
             </motion.h2>
 
             <motion.p initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5, duration: 0.8 }}>
-               We offer a wide range of *digital solutions* to help businesses *grow, engage, and convert* in the online world.
+               We offer a wide range of digital solutions to help businesses grow, engage, and convert in the online world.
             </motion.p>
 
             <div className={styles.serviceCards}>
@@ -38,7 +38,11 @@ const Services = () => {
                      animate={{ opacity: 1, scale: 1 }}
                      transition={{ delay: 0.6 + index * 0.1, duration: 0.8 }}
                   >
-                     <div className={styles.icon}>{service.icon}</div>
+                     <div className={styles.icon}>
+                        <span className={styles.iconTop}>{service.icon}</span> 
+                        <span className={styles.iconBottom}>{service.icon}</span> 
+                        {/* {service.icon} */}
+                     </div>
                      <h3>{service.title}</h3>
                      <p>{service.description}</p>
                   </motion.div>

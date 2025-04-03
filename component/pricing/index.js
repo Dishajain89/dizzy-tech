@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import styles from "./style.module.scss";
+import ButtonCustom from "../ui/button";
 
 const pricingData = {
   india: [
@@ -40,7 +41,7 @@ const Pricing = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          Flexible and transparent pricing, tailored for **Indian & International clients**.
+          Flexible and transparent pricing, tailored for Indian & International clients.
         </motion.p>
 
         <div className={styles.toggleWrapper}>
@@ -65,7 +66,7 @@ const Pricing = () => {
               <ul>
                 {plan.features.map((feature, i) => <li key={i}>{feature}</li>)}
               </ul>
-              <a href="#contact" className={styles.cta}>Get Started</a>
+              <a href="#contact"><ButtonCustom label="Get Started"></ButtonCustom> </a>
             </motion.div>
           ))}
         </div>

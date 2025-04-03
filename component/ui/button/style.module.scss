@@ -1,0 +1,61 @@
+@import "../../../public/styles/partials/variables";
+// .animatedButton {
+//     position: relative;
+//     background: $secondray-hover; // Change to your theme color
+//     color: $primary-color;
+//     border: none;
+//     padding: 0.8rem 1.5rem;
+//     font-size: 1.2rem;
+//     font-weight: bold;
+//     cursor: pointer;
+//     border-radius: 5px;
+//     overflow: hidden;
+//     width: 200px;
+//     height: 50px;
+//     text-transform: uppercase;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+ 
+//     span {
+//        position: absolute;
+//        display: block;
+//        width: 100%;
+//        text-align: center;
+//        transition: transform 0.4s ease-in-out;
+//     }
+ 
+//     .topText {
+//        transform: translateY(0);
+//     }
+ 
+//     .bottomText {
+//        transform: translateY(200%);
+//     }
+ 
+//     &:hover {
+//        .topText {
+//           transform: translateY(-200%);
+//        }
+//        .bottomText {
+//           transform: translateY(0);
+//        }
+//     }
+//  }
+ 
+
+ .button {
+    background: $hover-color;
+    color: $primary-color;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+
+    &:hover {
+       background: lighten($hover-color, 10%);
+    }
+ }

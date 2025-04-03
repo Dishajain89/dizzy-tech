@@ -4,13 +4,16 @@ import Link from "next/link";
 import styles from "./style.module.scss";
 import { motion } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
+import Image from "next/image";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <nav className={styles.navbar}>
-      <div className={styles.logo}>DizzyTech</div>
+      <div className={styles.logo}>
+        <Image src="/images/dizzyTechLogo-white.png" width="70" height="50" alt="logo" />
+      </div>
       
       <div className={styles.menuIcon} onClick={() => setMenuOpen(!menuOpen)}>
         {menuOpen ? <FiX /> : <FiMenu />}

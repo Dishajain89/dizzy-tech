@@ -48,7 +48,7 @@ const Portfolio = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          Here are some of our recent **projects**, crafted with **precision and creativity**.
+          Here are some of our recent projects, crafted with precision and creativity.
         </motion.p>
 
         <div className={styles.projects}>
