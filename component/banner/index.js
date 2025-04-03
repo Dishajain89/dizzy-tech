@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import styles from "./style.module.scss";
 import Link from "next/link";
 import Lottie from "lottie-react";
-import animationData from "@/public/animation/animation1.json";
+import animationData from "../../public/assets/animation/Animation1.json";
 import ButtonCustom from "../ui/button";
 
 const Banner = () => {
@@ -36,13 +36,9 @@ const Banner = () => {
                   We build <b>high-converting websites</b> & digital strategies that help your business grow. Let’s create something amazing together!
                </motion.p>
                <Link href="#contact">
-                 <ButtonCustom label="Get Started" />
-                  
+                  <ButtonCustom label="Get Started" />
                </Link>
-              
             </div>
-
-          
          </motion.div>
       </section>
    );
