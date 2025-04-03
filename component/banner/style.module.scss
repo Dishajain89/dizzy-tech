@@ -111,12 +111,15 @@
 
    /* ✅ Responsive Design */
    @media (max-width: 768px) {
+         height: 50vh;
+      
       .container {
          flex-direction: column;
          text-align: center;
       }
 
       .text {
+         width: 100%;
          h1 {
             font-size: 2rem;
          }
