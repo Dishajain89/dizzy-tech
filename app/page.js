@@ -1,4 +1,3 @@
-"use client"
 import Banner from "@/component/banner";
 import AboutUs from "@/component/aboutUs";
 import Services from "@/component/ourServices";

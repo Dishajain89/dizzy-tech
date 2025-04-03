@@ -2,7 +2,6 @@
 import { motion } from "framer-motion";
 import styles from "./style.module.scss";
 import Image from "next/image";
-import Button from "../ui/button";
 import ButtonCustom from "../ui/button";
 
 const AboutUs = () => {

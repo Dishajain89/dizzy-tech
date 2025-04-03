@@ -1,5 +1,6 @@
 "use client";
-import { useState, useEffect } from "react";
+
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import styles from "./style.module.scss";
 import Link from "next/link";
@@ -12,9 +13,9 @@ const Banner = () => {
    const [animationData, setAnimationData] = useState(null);
 
    useEffect(() => {
-      // Ensure this runs only on the client
       if (typeof window !== "undefined") {
-         import("../../public/Animation1.json")
+         fetch("/animation1.json")
+            .then((res) => res.json())
             .then((data) => setAnimationData(data))
             .catch((err) => console.error("Error loading animation:", err));
       }
