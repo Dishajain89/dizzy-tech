@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import styles from "./style.module.scss";
 import Link from "next/link";
 import Lottie from "lottie-react";
-import animationData from "@/public/animation1.json";
+import animationData from "@/public/animation/animation1.json";
 import ButtonCustom from "../ui/button";
 
 const Banner = () => {
