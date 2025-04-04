@@ -98,6 +98,14 @@
         max-width: 300px;
       }
     }
+
+    @media (max-width: 450px){
+
+      .image img{
+        max-width: unset;
+        height: 20rem;
+      }
+    }
   }
   
 

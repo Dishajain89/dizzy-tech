@@ -17,6 +17,9 @@ const geistMono = Geist_Mono({
 export const metadata = {
    title: "Dizzy Tech",
    description: "Your Digital Growth Partner.",
+   icons:{
+     icon :"/favicon.ico"
+   }
 };
 
 export default function RootLayout({ children }) {
